@@ -1,7 +1,5 @@
 package main.java.sums;
 
-import java.util.Arrays;
-
 public class SummativeSums {
     public static void main(String[] args) {
         int[] Array1 = {1, 90, -33, -55, 67, -16, 28, -55, 15};
@@ -20,8 +18,8 @@ public class SummativeSums {
 
     public static int arrayAdder(int[] array){
         int result=0;
-        for (int i=0; i<array.length;i++){
-            result+=array[i];
+        for (int j : array) {
+            result += j;
         }
         return result;
     }
