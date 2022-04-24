@@ -4,12 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors4 {
-
     static int computerScore = 0;
     static int playerScore = 0;
     static int draws = 0;
     static boolean restart = true;
-
     public static void main(String[] args) {
         //boolean restart = true;
         while (restart) {
@@ -19,12 +17,8 @@ public class RockPaperScissors4 {
             System.out.println("I want to play a game.\n");
 
             rounds = getRoundsCatchInvalid();
-
-            //score tracking
-
             String[] throwName = {"Rock", "Paper", "Scissors"};
 
-            //looping through rounds
             for (int i = 0; i < rounds; i++) {
 
                 int playerThrow = getThrowCatchInvalid(i);
@@ -38,21 +32,16 @@ public class RockPaperScissors4 {
 
                 System.out.println("current scores - Computer: " + computerScore + ", Player: " + playerScore + " Draws:" + draws + "\n");
             }
-
             overallWinnerCheck();
-
             restartChoice();
-
-
         }
     }
     public static boolean outOfBoundsCheckQuit(int lowerBound, int upperBound, int input){
-        //method to check if user input is valid.
         if (input<lowerBound || input>upperBound){
             System.out.println("** Error - Out of bounds. Exiting. **");
             System.exit(0);
         } else {
-            return true;
+            return true;//returns true so the do (try catch) while loop can exit
         }
         return false;
     }
@@ -61,10 +50,9 @@ public class RockPaperScissors4 {
             System.out.println("** Error - Out of bounds. Choose a valid throw **.\n-----------------");
             return false;
         } else {
-            return true;
+            return true;//returns true so the do (try catch) while loop can exit
         }
     }
-
     public static String winnerCheckIfNotDraw(int playerMove,int compMove){
         if ((playerMove==0 && compMove==2)||(playerMove==1&&compMove==0)||(playerMove==2&&compMove==1)){
             return "You win this round!";
@@ -72,7 +60,6 @@ public class RockPaperScissors4 {
             return "Computer wins this round!";
         }
     }
-
     public static int getRoundsCatchInvalid(){
         boolean validRoundsInput = false;
         Scanner scanner = new Scanner(System.in);
@@ -90,7 +77,6 @@ public class RockPaperScissors4 {
         } while (!validRoundsInput);
         return rounds;
     }
-
     public static int getThrowCatchInvalid(int i){
         boolean validPlayerInput = false;
         Scanner scanner = new Scanner(System.in);
@@ -109,7 +95,6 @@ public class RockPaperScissors4 {
         } while (!validPlayerInput);
         return playerThrow;
     }
-
     public static void whoWon(int playerThrow, int computerThrow){
         if (playerThrow == computerThrow) {
             System.out.println("draw!");
@@ -124,7 +109,6 @@ public class RockPaperScissors4 {
             }
         }
     }
-
     public static void restartChoice(){
         boolean validRestartResponse = false;
         Scanner scanner = new Scanner(System.in);
@@ -146,7 +130,6 @@ public class RockPaperScissors4 {
             }
         } while(!validRestartResponse);
     }
-
     public static void overallWinnerCheck(){
         System.out.println("final score - computer: " + computerScore + " player: " + playerScore + " Draws:" + draws);
         if (computerScore == playerScore) {
