@@ -9,7 +9,7 @@ public class RockPaperScissors4 {
     static int draws = 0;
     static boolean restart = true;
     public static void main(String[] args) {
-        //boolean restart = true;
+        boolean restart = true;
         while (restart) {
             Scanner scanner = new Scanner(System.in);
             Random rng = new Random();
